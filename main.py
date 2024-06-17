@@ -39,8 +39,8 @@ level = 1
 font = pygame.font.Font(None, 36)
 
 # Начальная скорость движения цели
-target_speed_x = 0.05
-target_speed_y = 0.05
+target_speed_x = 0.2
+target_speed_y = 0.2
 
 # Основной игровой цикл
 running = True
@@ -66,8 +66,8 @@ while running:
                 # Повышение уровня и увеличение скорости каждые 3 попадания
                 if score % 3 == 0:
                     level += 1
-                    target_speed_x *= 1.2
-                    target_speed_y *= 1.2
+                    target_speed_x *= 1.9
+                    target_speed_y *= 1.9
 
     # Перемещение цели
     target_x += target_speed_x
