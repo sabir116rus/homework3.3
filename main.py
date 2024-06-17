@@ -38,6 +38,10 @@ level = 1
 # Шрифт для отображения текста
 font = pygame.font.Font(None, 36)
 
+# Загрузка звуков
+hit_sound = pygame.mixer.Sound("sounds/hit_sound.wav")
+miss_sound = pygame.mixer.Sound("sounds/miss_sound.wav")
+
 # Начальная скорость движения цели
 target_speed_x = 0.05
 target_speed_y = 0.05
@@ -63,11 +67,16 @@ while running:
                 target_y = random.randint(0, SCREEN_HEIGHT - target_height)
                 # Увеличение счета
                 score += 1
+                # Воспроизведение звука попадания
+                hit_sound.play()
                 # Повышение уровня и увеличение скорости каждые 3 попадания
                 if score % 3 == 0:
                     level += 1
                     target_speed_x *= 1.2
                     target_speed_y *= 1.2
+            else:
+                # Воспроизведение звука промаха
+                miss_sound.play()
 
     # Перемещение цели
     target_x += target_speed_x
